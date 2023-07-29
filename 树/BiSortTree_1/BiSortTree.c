@@ -95,7 +95,7 @@ void midprint(LnkBiTree *bitree)
 	printf("\n");
 }
 
-void befprint(LnkBiTree *bitree)
+void preprint(LnkBiTree *bitree)
 {
 	if(NULL==bitree)
 		return;
@@ -117,34 +117,26 @@ void befprint(LnkBiTree *bitree)
 	printf("\n");
 }
 
-void aftprint(LnkBiTree *bitree)
+void posprint(LnkBiTree *bitree)
 {
 	if(NULL==bitree)
 		return;
 	
 	LnkBiTree *t = bitree;
-	LnkBiTree *tt = bitree;
-	
-	LnkStack *stk= initStack();
-	Push(stk,t);
-	while(stk->top)
+	LnkStack *stk1= initStack();
+	LnkStack *stk2= initStack();
+	Push(stk1,t);
+	while(stk1->top)
 	{
+		t=Pop(stk1);
 		if(t->lchild)
-		{
-			Push(stk,t->lchild);
-			t=t->lchild;
-		}
-		else
-		{
-			tt=Pop(stk);
-			printf("%d ",tt->data);
-			if(tt->rchild)
-			{
-				t=tt->rchild;
-				Push(stk,t);
-			}
-		}
+			Push(stk1,t->lchild);
+		if(t->rchild)
+			Push(stk1,t->rchild);
+		Push(stk2,t);
 	}
+	while(stk2->top)
+		printf("%d ",Pop(stk2)->data);
 	printf("\n");
 }
 

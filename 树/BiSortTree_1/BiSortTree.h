@@ -26,7 +26,9 @@ void addtnode(LnkBiTree **bitree,LnkBiTree *newtnode);
 
 void midprint(LnkBiTree *bitree);
 
-void befprint(LnkBiTree *bitree);
+void preprint(LnkBiTree *bitree);
+
+void posprint(LnkBiTree *bitree);
 
 void destroytree(LnkBiTree **bitree);
 

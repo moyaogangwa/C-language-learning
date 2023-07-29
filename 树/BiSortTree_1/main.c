@@ -6,9 +6,11 @@ int main()
 	LnkBiTree *root = createbitree();
 	
 	
-	befprint(root);
+	preprint(root);
 	
 	midprint(root);
+	
+	posprint(root);
 	
 	destroytree(&root);
 	
